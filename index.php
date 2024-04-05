@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'/config.php';
+require_once 'config.php';
 
 //przekierowanie przeglądarki klienta (redirect)
 //header("Location: "._APP_URL."/app/calc_view.php");
