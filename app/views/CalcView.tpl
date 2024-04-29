@@ -1,4 +1,5 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
+{* przy zdefiniowanych folderach nie trzeba już podawać pełnej ścieżki *}
 
 {block name=footer} zrobic stala stopke {/block}
 {block name=content}
