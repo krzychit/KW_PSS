@@ -15,25 +15,34 @@ require_once 'init.php';
 // Dodatkowo zmieniono organizację kontrolerów i widoków. Teraz wszystkie są w odpowiednio nazwanych folderach w app
 
 switch ($action) {
-	default : // 'calcView'
-                // utwórz obiekt i uzyj
-		// (autoloader sam załaduje plik na podstawie przestrzeni nazw względem folderu głównego aplikacji)
+	default : // 'calcView'  // akcja NIEPUBLICZNA
+		include 'check.php'; // KONTROLA
 		$ctrl = new app\controllers\CalcCtrl();
 		$ctrl->generateView ();
                 $ctrl = new app\controllers\CalcCreditCtrl (); //poprawic usuwajac
                 $ctrl->generateViewmr (); //poprawic usuwajac
 	break;
-	case 'calcCompute' :
-		// utwórz obiekt i uzyj
+	case 'login': // akcja PUBLICZNA - brak check.php
+		$ctrl = new app\controllers\LoginCtrl();
+		$ctrl->doLogin();
+	break;
+	case 'calcCompute' : // akcja NIEPUBLICZNA
+		include 'check.php';  // KONTROLA
 		$ctrl = new app\controllers\CalcCtrl();
 		$ctrl->process ();
 	break;
-        case 'calcCreditCompute' :
-		// utwórz obiekt i uzyj
+        case 'calcCreditCompute' : // akcja NIEPUBLICZNA
+		include 'check.php';  // KONTROLA
 		$ctrl = new app\controllers\CalcCreditCtrl ();
 		$ctrl->processmr ();
 	break;
-	case 'action2' :
-		// zrób coś innego ...
+	case 'logout' : // akcja NIEPUBLICZNA
+		include 'check.php';  // KONTROLA
+		$ctrl = new app\controllers\LoginCtrl();
+		$ctrl->doLogout();
+	break;
+	case 'action1' : // akcja PUBLICZNA - brak check.php
+		// zrób coś innego publicznego ...
+		print('reakcja na akcję publiczną ....');
 	break;
 }

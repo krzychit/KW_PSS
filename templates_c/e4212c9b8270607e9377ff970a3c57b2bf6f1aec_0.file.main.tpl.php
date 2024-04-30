@@ -1,3 +1,29 @@
+<?php
+/* Smarty version 4.5.2, created on 2024-04-30 11:35:52
+  from 'C:\Users\Maja\Desktop\PSS\XAMPP\htdocs\php_pss_kalkulator\app\views\templates\main.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.5.2',
+  'unifunc' => 'content_6630bb78d11e23_91641621',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'e4212c9b8270607e9377ff970a3c57b2bf6f1aec' => 
+    array (
+      0 => 'C:\\Users\\Maja\\Desktop\\PSS\\XAMPP\\htdocs\\php_pss_kalkulator\\app\\views\\templates\\main.tpl',
+      1 => 1714469750,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6630bb78d11e23_91641621 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
 <!DOCTYPE HTML>
 <!--
 	Halcyonic by HTML5 UP
@@ -7,16 +33,28 @@
 <html>
 	<head>
 		
-                <title>{$page_title|default:"Tytuł domyślny"}</title>
-                <meta name="description" content="{$page_description|default:"Opis domyślny"}">
+                <title><?php echo (($tmp = $_smarty_tpl->tpl_vars['page_title']->value ?? null)===null||$tmp==='' ? "Tytuł domyślny" ?? null : $tmp);?>
+</title>
+                <meta name="description" content="<?php echo (($tmp = $_smarty_tpl->tpl_vars['page_description']->value ?? null)===null||$tmp==='' ? "Opis domyślny" ?? null : $tmp);?>
+">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-                <script src="assets/js/jquery.min.js"></script>
-                <script src="assets/js/browser.min.js"></script>
-                <script src="assets/js/breakpoints.min.js"></script>
-                <script src="assets/js/util.js"></script>
-                <script src="assets/js/main.js"></script>
+                <?php echo '<script'; ?>
+ src="assets/js/jquery.min.js"><?php echo '</script'; ?>
+>
+                <?php echo '<script'; ?>
+ src="assets/js/browser.min.js"><?php echo '</script'; ?>
+>
+                <?php echo '<script'; ?>
+ src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
+>
+                <?php echo '<script'; ?>
+ src="assets/js/util.js"><?php echo '</script'; ?>
+>
+                <?php echo '<script'; ?>
+ src="assets/js/main.js"><?php echo '</script'; ?>
+>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -73,12 +111,10 @@
 					<div class="container">
                                             
 						<div class="row aln-center">
-                                                    {block name=content}
-							<div class="col-4 col-12-medium">
-                                                            
-                                                            <p></p>
-						</div>
-                                                  {/block}  
+                                                    <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15919853336630bb78d11167_19085217', 'content');
+?>
+  
 					</div>
 				</section>
 
@@ -121,4 +157,25 @@
 
 	</body>
         
-</html>
+</html><?php }
+/* {block 'content'} */
+class Block_15919853336630bb78d11167_19085217 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_15919853336630bb78d11167_19085217',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+							<div class="col-4 col-12-medium">
+                                                            
+                                                            <p></p>
+						</div>
+                                                  <?php
+}
+}
+/* {/block 'content'} */
+}

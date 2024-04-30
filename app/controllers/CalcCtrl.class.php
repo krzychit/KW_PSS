@@ -120,16 +120,15 @@ class CalcCtrl {
 	 * Wygenerowanie widoku
 	 */
 	public function generateView(){
-		//nie trzeba już tworzyć Smarty i przekazywać mu konfiguracji i messages
-		// - wszystko załatwia funkcja getSmarty()
+		global $user;
 
-		getSmarty()->assign('page_title','Kalkulator');
-		getSmarty()->assign('page_description','Obiektowość. Funkcjonalność aplikacji zamknięta w metodach różnych obiektów. Pełen model MVC. Ćwiczenie');
-		getSmarty()->assign('page_header','Obiekty w PHP');
+		getSmarty()->assign('user',$user);
 				
+		getSmarty()->assign('page_title','Super kalkulator');
+
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
 		
-		getSmarty()->display('CalcView.tpl'); // już nie podajemy pełnej ścieżki - foldery widoków są zdefiniowane przy ładowaniu Smarty
+		getSmarty()->display('CalcView.tpl');
 	}
 }

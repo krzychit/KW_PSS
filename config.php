@@ -1,6 +1,6 @@
 <?php
 //konfiguracja
-$conf->server_name = 'localhost:80';
+$conf->server_name = 'localhost';
 $conf->server_url = 'http://'.$conf->server_name;
 $conf->app_root = '/php_pss_kalkulator';
 $conf->action_root = $conf->app_root.'/ctrl.php?action=';
