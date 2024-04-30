@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.2, created on 2024-04-30 11:28:36
+/* Smarty version 4.5.2, created on 2024-04-30 16:26:23
   from 'C:\Users\Maja\Desktop\PSS\XAMPP\htdocs\php_pss_kalkulator\app\views\LoginView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.2',
-  'unifunc' => 'content_6630b9c4a97903_36598418',
+  'unifunc' => 'content_6630ff8f0c6620_15793186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:messages.tpl' => 1,
   ),
 ),false)) {
-function content_6630b9c4a97903_36598418 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6630ff8f0c6620_15793186 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -29,16 +29,16 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12531062366630b9c4a86fd1_62832118', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11051998526630ff8f0b5205_48372754', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_12531062366630b9c4a86fd1_62832118 extends Smarty_Internal_Block
+class Block_11051998526630ff8f0b5205_48372754 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_12531062366630b9c4a86fd1_62832118',
+    0 => 'Block_11051998526630ff8f0b5205_48372754',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

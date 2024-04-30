@@ -1,48 +1,40 @@
 <?php
 require_once 'init.php';
-// Skrypt kontrolera głównego jako jedyny "punkt wejścia" inicjuje aplikację.
+// Rozszerzenia:
+// 1. Konfigurację (klasę Config) rozszerzono o dwa nowe pola: 'login_action' oraz 'roles'.
+// 'roles' to tablica przechowująca zapisane w sesji role użytkownika (dowolne nazwy)
+// 'login_action' to nazwa akcji, do której system ma automatycznie przekierować, kiedy użytkownik nie ma uprawnień (brak podanej roli)
 
-// Inicjacja ładuje konfigurację, definiuje funkcje getConf(), getMessages() oraz getSmarty(),
-// pozwalające odwołać się z każdego miejsca w systemie do obiektów konfiguracji, messages i smarty.
+// 2. Rozwiązanie wymaga kożdorazowego podłączania do sesji (session_start) i ładowania ról - robi to skrypt init.php, na samym końcu
 
-// Nowością jest sama klasa ClassLoader oraz utworzenie obiektu tej klasy w skrypcie init z dostępem jak dla
-// wcześniejszych obiekkót za pomocą funkcji getLoader(). Pozwala ona automatycznie załadować klasy umieszczone
-// w głównym folderze aplikacji - w podfolderach zgodnie z ich przestrzeniami nazw (które są częścią pełnej nazwy klasy).
+// 3. Znacząco rozbudowano skrypt functions.php, gdzie dodano pomocnicze funkcje związane z :
+// - pobieraniem parametrów ze wszystkich możliwych źródeł (również sesji i ciasteczek)
+//   oraz dodano możliwość wygenerowania komunikatu o błędzie w przypadku braku parametru wymaganego
+//
+// - sprawdzeniem, czy użytkownik jest w danej roli (posiada dany wpis w tablicy ról)
+//
+// - dodano funkcję 'control' integrującą wywołanie metody kontrolera ze sprawdzeniem roli,
+//   gdy brak wymaganej roli, system automatycznie przekierowuje do akcji zapisanej w polu konfiguracji 'login_action'
+//   Znikają zatem jakiekolwiek skrypty sprawdzające, czy ktoś jest zalogowany (jak 'check.php')
 
-// Ponadto ładuje skrypt funkcji pomocniczych (functions.php) oraz wczytuje parametr 'action' do zmiennej $action.
-// Wystarczy już tylko podjąć decyzję co zrobić na podstawie $action.
+// należy zwrócić uwagę jak usprawnia to dotychczasową strukturę i logicznie wiąże wywołanie kontrolera z uprawnieniami
+// - nie potrzeba już 'break' po każdym przypadku, ponieważ funkcja 'control' zakończona jest poleceniem 'exit'.
+// - akcje publiczne nie wymagają podania roli w funkcji 'control'
+// - akcje niepubliczne - wymagające posiadania roli - posiadają tablicę dopuszczonych ról w ostatnim parametrze
 
-// Dodatkowo zmieniono organizację kontrolerów i widoków. Teraz wszystkie są w odpowiednio nazwanych folderach w app
+getConf()->login_action = 'login'; //określenie akcji logowania - robimy to w tym miejscu, ponieważ tu są zdefiniowane wszystkie akcje
 
 switch ($action) {
-	default : // 'calcView'  // akcja NIEPUBLICZNA
-		include 'check.php'; // KONTROLA
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->generateView ();
-                $ctrl = new app\controllers\CalcCreditCtrl (); //poprawic usuwajac
-                $ctrl->generateViewmr (); //poprawic usuwajac
-	break;
-	case 'login': // akcja PUBLICZNA - brak check.php
-		$ctrl = new app\controllers\LoginCtrl();
-		$ctrl->doLogin();
-	break;
-	case 'calcCompute' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->process ();
-	break;
-        case 'calcCreditCompute' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\CalcCreditCtrl ();
-		$ctrl->processmr ();
-	break;
-	case 'logout' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\LoginCtrl();
-		$ctrl->doLogout();
-	break;
-	case 'action1' : // akcja PUBLICZNA - brak check.php
-		// zrób coś innego publicznego ...
-		print('reakcja na akcję publiczną ....');
-	break;
+    default :
+        control('app\\controllers', 'CalcCtrl',		'generateView', ['user','admin']);
+    case 'login': 
+        control('app\\controllers', 'LoginCtrl',	'doLogin');
+    case 'calcCompute' : 
+        //zamiast pierwszego parametru można podać null lub '' wtedy zostanie przyjęta domyślna przestrzeń nazw dla kontrolerów
+        control(null, 'CalcCtrl',	'process',		['user','admin']);
+    case 'calcCreditCompute' : 
+        //zamiast pierwszego parametru można podać null lub '' wtedy zostanie przyjęta domyślna przestrzeń nazw dla kontrolerów
+        control(null, 'CalcCreditCtrl',	'processmr',		['user','admin']);
+    case 'logout' : 
+        control(null, 'LoginCtrl',	'doLogout',		['user','admin']);
 }

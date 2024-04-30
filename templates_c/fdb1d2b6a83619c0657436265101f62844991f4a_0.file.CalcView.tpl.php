@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.2, created on 2024-04-30 11:31:52
+/* Smarty version 4.5.2, created on 2024-04-30 16:26:28
   from 'C:\Users\Maja\Desktop\PSS\XAMPP\htdocs\php_pss_kalkulator\app\views\CalcView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.2',
-  'unifunc' => 'content_6630ba8806ddb3_06815877',
+  'unifunc' => 'content_6630ff94b99354_74153964',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,28 +21,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:messages.tpl' => 1,
   ),
 ),false)) {
-function content_6630ba8806ddb3_06815877 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6630ff94b99354_74153964 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7628407726630ba8804d7e9_39947018', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15470796736630ff94b7e6c5_43167631', 'footer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7258697916630ba8804e774_83214331', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10038815376630ff94b7f435_55118517', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'footer'} */
-class Block_7628407726630ba8804d7e9_39947018 extends Smarty_Internal_Block
+class Block_15470796736630ff94b7e6c5_43167631 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_7628407726630ba8804d7e9_39947018',
+    0 => 'Block_15470796736630ff94b7e6c5_43167631',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_7258697916630ba8804e774_83214331 extends Smarty_Internal_Block
+class Block_10038815376630ff94b7f435_55118517 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_7258697916630ba8804e774_83214331',
+    0 => 'Block_10038815376630ff94b7f435_55118517',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

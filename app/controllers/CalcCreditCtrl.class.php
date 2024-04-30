@@ -111,11 +111,9 @@ class CalcCreditCtrl {
 	 * Wygenerowanie widoku
 	 */
 	public function generateViewmr(){
-		global $user;
-
-		getSmarty()->assign('user',$user);
+		getSmarty()->assign('user',unserialize($_SESSION['user']));
 				
-		getSmarty()->assign('page_title','Super kalkulator');
+		getSmarty()->assign('page_title','Super kalkulator - role');
 		
 		getSmarty()->assign('form',$this->form);
                 getSmarty()->assign('resmr',$this->resultmr);

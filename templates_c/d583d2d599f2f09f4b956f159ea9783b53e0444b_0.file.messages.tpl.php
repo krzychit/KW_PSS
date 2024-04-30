@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.5.2, created on 2024-04-30 11:28:36
+/* Smarty version 4.5.2, created on 2024-04-30 16:26:23
   from 'C:\Users\Maja\Desktop\PSS\XAMPP\htdocs\php_pss_kalkulator\app\views\templates\messages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.2',
-  'unifunc' => 'content_6630b9c4af1473_57941714',
+  'unifunc' => 'content_6630ff8f133175_91911427',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6630b9c4af1473_57941714 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6630ff8f133175_91911427 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['msgs']->value->isError()) {?>
 <div class="messages err">
 	<ol>
