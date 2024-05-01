@@ -69,7 +69,7 @@ class LoginCtrl{
 		return ! getMessages()->isError();
 	}
 	
-	public function doLogin(){
+	public function action_login(){
 
 		$this->getParams();
 		
@@ -83,7 +83,7 @@ class LoginCtrl{
 		
 	}
 	
-	public function doLogout(){
+	public function action_logout(){
 		// 1. zakończenie sesji - tylko kończymy, jesteśmy już podłączeni w init.php
 		session_destroy();
 		

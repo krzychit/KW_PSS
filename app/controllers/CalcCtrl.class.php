@@ -79,7 +79,7 @@ class CalcCtrl {
         /** 
 	 * Pobranie wartości, walidacja, obliczenie i wyświetlenie
 	 */
-	public function process(){
+	public function action_calcCompute(){
 
 		$this->getParams();
 		
@@ -115,6 +115,11 @@ class CalcCtrl {
 		
 		$this->generateView();
 	}
+        
+	public function action_calcShow(){
+		getMessages()->addInfo('Witaj w kalkulatorze');
+		$this->generateView();
+	}      
         
         /**
 	 * Wygenerowanie widoku

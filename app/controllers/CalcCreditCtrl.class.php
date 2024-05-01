@@ -86,7 +86,7 @@ class CalcCreditCtrl {
         /** 
 	 * Pobranie wartości, walidacja, obliczenie i wyświetlenie
 	 */
-	public function processmr(){
+	public function action_calcCreditCompute(){
 
 		$this->getparamsmr();
 		
@@ -107,6 +107,10 @@ class CalcCreditCtrl {
 		$this->generateViewmr();
 	}
         
+	public function action_calcShowMr(){
+		getMessages()->addInfo('Witaj w kalkulatorze');
+		$this->generateViewmr();
+	}
         /**
 	 * Wygenerowanie widoku
 	 */
